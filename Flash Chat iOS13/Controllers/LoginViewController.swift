@@ -8,7 +8,6 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginPressed(_ sender: UIButton) {
-        
         if let email = emailTextfield.text, let password = passwordTextfield.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let error = error {
@@ -23,7 +22,7 @@ class LoginViewController: UIViewController {
                     // show the alert
                     self.present(alert, animated: true, completion: nil)
                 } else {
-                    self.performSegue(withIdentifier: "LoginToChat", sender: self)
+                    self.performSegue(withIdentifier: K.loginSegue, sender: self)
                 }
             }
         }
